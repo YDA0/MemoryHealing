@@ -11,11 +11,12 @@ import UIKit
 
 class LoginViewController: ViewController {
     @IBOutlet weak var loginEmailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
     
-    @IBAction func login(_ sender: UIButton) {
+    @IBOutlet weak var loginPasswordTextField: UITextField!
+    
+    @IBAction func LoginButton(_ sender: Any) {
         guard let email = loginEmailTextField.text else { return }
-        guard let password = passwordTextField.text else { return }
+        guard let password = loginPasswordTextField.text else { return }
         
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             if let e = error {
@@ -25,5 +26,6 @@ class LoginViewController: ViewController {
             }
         }
     }
+    
 }
 
