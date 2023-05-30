@@ -24,13 +24,11 @@ class SignupViewController: ViewController {
         }
         
         // 이후의 코드 실행
-        
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let e = error {
-                print( "error --> \(e.localizedDescription)")
+                print(e.localizedDescription)
             } else {
-                print("\(email), \(password)")
-//                self.performSegue(withIdentifier: "SignUp", sender: self)
+                self.performSegue(withIdentifier: "SignUp", sender: self)
             }
         }
     }
